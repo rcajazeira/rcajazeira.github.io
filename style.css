@@ -1,164 +1,91 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
 
-  h1, h2 {
-    margin: 0;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  .logo h1 {
-    font-size: 100px;
-  }
-  
-  .logo h2 {
-    font-size: 50px;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 20px;
-    font-size: 40px;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  section {
-    margin-bottom: 40px;
-    font-size: 30px;
-  }
+.gradient-text {
+    background: linear-gradient(90deg, #007BFF 0%, #0056b3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 
-  #sobre {
-    text-align: justify;
-    font-size: 35px;
-  }
+.skill-bar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e2e8f0;
+}
 
-  #habilidades{
-    text-align: justify;
-    font-size: 35px; 
-  }
+.skill-progress {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #007BFF 0%, #0056b3 100%);
+}
 
-  #trabalhos{
-    text-align: justify;
-    font-size: 35px;  
-  }
-
-  #contato{
-    text-align: justify;
-    font-size: 35px;  
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .social-media {
-    list-style: none;
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+    color: white;
     display: flex;
     justify-content: center;
-  }
-  
-  .social-media li {
-    margin-right: 55px;
-  }
-  
-  .social-media li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 55px;
-  }
-
-  .carousel {
-    position: relative;
-    width: 100%;
-    height: 300px; /* Ajuste a altura desejada */
-    overflow: hidden;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center; /* Adicione esta linha para centralizar as imagens */
-  }
-  
-  .carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .carousel-item.active {
-    opacity: 1;
-  }
-  
-  .carousel-item.fade-in {
-    animation: fade-in 1s ease-in-out forwards;
-  }
-  
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .carousel-next,
-  .carousel-previous {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px;
-    background-color: #ccc;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .carousel-next {
-    right: 10px;
-  }
-  
-  .carousel-previous {
-    left: 10px;
-  }
+    transition: opacity 0.3s;
+}
 
-  .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+.back-to-top.visible {
+    opacity: 1;
+}
+
+/* Fix para centralização dos ícones */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Adicionando regras para responsividade mobile */
+
+@media (max-width: 767px) {
+    .md\:flex-row {
+        flex-direction: column;
+    }
+
+    .md\:w-1/3, .md\:w-2/3 {
+        width: 100% !important;
+    }
+
+    .md\:pl-16 {
+        padding-left: 0 !important;
+    }
+
+    .md\:pr-16 {
+        padding-right: 0 !important;
+    }
+
+    .md\:grid-cols-2, .md\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ajuste para o menu de navegação */
+    nav.flex.md\:space-x-6 {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}

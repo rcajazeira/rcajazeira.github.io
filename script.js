@@ -1,43 +1,19 @@
-const carouselItems = document.querySelectorAll('.carousel-item');
-const carouselNextButton = document.querySelector('.carousel-next');
-const carouselPreviousButton = document.querySelector('.carousel-previous');
-let currentItem = 0;
-let intervalId;
-
-function showSlide(n) {
-  carouselItems[currentItem].classList.remove('active');
-  currentItem = (n + carouselItems.length) % carouselItems.length;
-  carouselItems[currentItem].classList.add('active');
-}
-
-function nextSlide() {
-  showSlide(currentItem + 1);
-}
-
-function previousSlide() {
-  showSlide(currentItem - 1);
-}
-
-function startCarousel() {
-  intervalId = setInterval(nextSlide, 3000); // Intervalo de 3 segundos
-}
-
-function stopCarousel() {
-  clearInterval(intervalId);
-}
-
-carouselNextButton.addEventListener('click', () => {
-  nextSlide();
+// Initialize AOS
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
 });
 
-carouselPreviousButton.addEventListener('click', () => {
-  previousSlide();
+// Back to Top Button
+window.addEventListener('scroll', function() {
+    const backToTopButton = document.getElementById('backToTop');
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
 });
 
-carouselItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    stopCarousel();
-  });
-});
-
-startCarousel();
+// Feather Icons
+feather.replace();
